@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend & Thread | Premium Sustainable Fashion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header Bar -->
+    <header>
+        <div class="logo">Trend&Thread</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#products">New Arrivals</a></li>
+                <li><a href="#checkout">Checkout</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="btn-icon">🌓</button>
+            <button class="btn-cart">🛒 Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </header>
+
+    <!-- Fashion Promo Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">NEW SEASON 2026</span>
+            <h1>Styles That Speak For You</h1>
+            <p>Discover minimal aesthetics, premium sustainable fabrics, and comfortable everyday essentials designed to last.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Shop Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Clothes Catalog Storefront -->
+    <section id="products" class="product-section">
+        <h2>Featured Arrivals</h2>
+        <p class="section-subtitle">Upgrade your seasonal wardrobe rotation</p>
+        
+        <div class="grid">
+            <!-- Product Item 1 -->
+            <div class="product-card">
+                <div class="product-image-placeholder">🧥 Blazer Image</div>
+                <div class="product-info">
+                    <span class="category">Outerwear</span>
+                    <h3>Oversized Tailored Blazer</h3>
+                    <p class="price">$120.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Item 2 -->
+            <div class="product-card">
+                <div class="product-image-placeholder">👕 T-Shirt Image</div>
+                <div class="product-info">
+                    <span class="category">Basics</span>
+                    <h3>Organic Cotton Heavyweight Tee</h3>
+                    <p class="price">$35.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Item 3 -->
+            <div class="product-card">
+                <div class="product-info-badge">Sale</div>
+                <div class="product-image-placeholder">👖 Denim Image</div>
+                <div class="product-info">
+                    <span class="category">Bottoms</span>
+                    <h3>Classic Straight-Leg Denim</h3>
+                    <p class="price"><span class="old-price">$95.00</span> $75.00</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secure Shipping & Payments Checkout Section -->
+    <section id="checkout" class="checkout-section">
+        <div class="checkout-container">
+            
+            <!-- Left Side Column: Contact, Shipping, & Stripe Details Form -->
+            <div class="checkout-form-box">
+                <h2>Shipping & Contact Details</h2>
+                <form id="shipping-form">
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="Jane" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <input type="text" id="address" placeholder="123 Fashion Ave, Apt 4B" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="New York" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipcode">Postal / ZIP Code</label>
+                            <input type="text" id="zipcode" placeholder="10001" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="shipping-method">Shipping Method</label>
+                        <select id="shipping-method">
+                            <option value="7.50">Standard Delivery (3-5 business days) - $7.50</option>
+                            <option value="15.00">Express Delivery (Next day) - $15.00</option>
+                            <option value="0.00">Store Pickup (Free) - $0.00</option>
+                        </select>
+                    </div>
+
+                    <!-- Encrypted Stripe Element Input Box -->
+                    <div class="form-group">
+                        <label for="card-element">Credit or Debit Card</label>
+                        <div id="card-element" class="stripe-card-input">
+                            <!-- Stripe injects a highly secure payment iframe window right here -->
+                        </div>
+                        <div id="card-errors" role="alert" class="error-message"></div>
+                    </div>
+
+                    <button type="submit" id="submit-payment" class="btn-primary btn-submit-order">Pay Securely Now</button>
+                </form>
+            </div>
+
+            <!-- Right Side Column: Dynamic Interactive Order Billing Summary Block -->
+            <div class="order-summary-box">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Items in Cart:</span>
+                    <span id="summary-qty">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="summary-subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Estimated Shipping:</span>
+                    <span id="summary-shipping">$7.50</span>
+                </div>
+                <hr class="summary-divider">
+                <div class="summary-row total-row">
+                    <span>Total Estimate:</span>
+                    <span id="summary-total">$7.50</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- External Official Stripe Script Engine Library -->
+    <script src="https://stripe.com"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+/* Color Palette Custom Token Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --accent-color: #000000;
+    --secondary-color: #f4f4f5;
+    --muted-text: #71717a;
+    --border-color: #e4e4e7;
+    --sale-color: #ef4444;
+    --transition: all 0.2s ease-in-out;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f4f4f5;
+    --accent-color: #ffffff;
+    --secondary-color: #18181b;
+    --muted-text: #a1a1aa;
+    --border-color: #27272a;
+}
+
+/* Document Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+/* Sticky Header Layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(18, 18, 18, 0.8);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* General Layout Action Buttons */
+.btn-primary, .btn-secondary, .btn-cart {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn-cart {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-radius: 4px;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Minimalist Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 70vh;
+    background-color: var(--secondary-color);
+    padding: 0 10%;
+}
+
+.hero-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--muted-text);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    color: var(--muted-text);
+}
+
+/* Clothes Product Catalog Grid */
+.product-section {
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.product-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--muted-text);
+    margin-bottom: 3.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.product-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    text-align: left;
+    position: relative;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.product-image-placeholder {
+    height: 380px;
+    background-color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-text);
+    font-weight: 500;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--muted-text);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.price {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--muted-text);
+    font-weight: 400;
+    margin-right: 0.5rem;
+}
+
+.product-info-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--sale-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-add-to-cart:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Shipping and Payment Forms Checkout Grid Layout */
+.checkout-section {
+    padding: 5rem 5%;
+    background-color: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .checkout-section {
+    background-color: #0b0b0c;
+}
+
+.checkout-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.checkout-form-box, .order-summary-box {
+    background-color: var(--bg-color);
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.checkout-form-box h2, .order-summary-box h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Stripe Container Inject Field Layout Styling */
+.stripe-card-input {
+    padding: 0.85rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.error-message {
+    color: var(--sale-color);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-submit-order {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.summary-divider {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 1.5rem 0;
+}
+
+.total-row {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Mobile Responsiveness View Breakpoint adjustments */
+@media (max-width: 900px) {
+    .checkout-container { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .product-image-placeholder { height: 280px; }
+}
+// ==========================================
+// 1. DYNAMIC COLOR LIGHT / DARK THEME TOGGLE
+// ==========================================
+const themeToggleBtn = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
+// ==========================================
+// 2. LIVE STOREFRONT MATH & CART COUNTERS
+// ==========================================
+let cartItemsCount = 0;
+let cartSubtotal = 0;
+let estimatedShipping = 7.50; 
+
+const cartCountElement = document.getElementById('cart-count');
+const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+
+const summaryQty = document.getElementById('summary-qty');
+const summarySubtotal = document.getElementById('summary-subtotal');
+const summaryShipping = document.getElementById('summary-shipping');
+const summaryTotal = document.getElementById('summary-total');
+const shippingDropdown = document.getElementById('shipping-method');
+
+function updateSummaryDisplay() {
+    summaryQty.textContent = cartItemsCount;
+    summarySubtotal.textContent = `$${cartSubtotal.toFixed(2)}`;
+    summaryShipping.textContent = `$${estimatedShipping.toFixed(2)}`;
+    
+    let grandTotal = cartSubtotal + estimatedShipping;
+    summaryTotal.textContent = `$${grandTotal.toFixed(2)}`;
+}
+
+addToCartButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        cartItemsCount++;
+        cartCountElement.textContent = cartItemsCount;
+        
+        const productCard = e.target.closest('.product-card');
+        const priceText = productCard.querySelector('.price').textContent;
+        const cleanPrice = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+        
+        cartSubtotal += cleanPrice;
+        updateSummaryDisplay();
+        
+        button.textContent = "✓ Added";
+        setTimeout(() => { button.textContent = "Add to Cart"; }, 800);
+    });
+});
+
+shippingDropdown.addEventListener('change', (e) => {
+    estimatedShipping = parseFloat(e.target.value);
+    updateSummaryDisplay();
+});
+
+// ==========================================
+// 3. SECURE STRIPE DIRECT CARD PAYMENT PROCESSING
+// ==========================================
+// Global test public token initialized safely for user prototype layout previewing
+const stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx'); 
+const elements = stripe.elements();
+
+const styleTokens = {
+    base: {
+        color: '#111111',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': { color: '#a1a1aa' }
+    },
+    invalid: { color: '#ef4444', iconColor: '#ef4444' }
+};
+
+if (document.documentElement.getAttribute('data-theme') === 'dark') {
+    styleTokens.base.color = '#f4f4f5';
+}
+
+const cardElement = elements.create('card', { style: styleTokens });
+cardElement.mount('#card-element');
+
+cardElement.on('change', (event) => {
+    const displayError = document.getElementById('card-errors');
+    if (event.error) {
+        displayError.textContent = event.error.message;
+    } else {
+        displayError.textContent = '';
+    }
+});
+
+const orderForm = document.getElementById('shipping-form');
+
+orderForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); 
+
+    if (cartItemsCount === 0) {
+        alert("Your shopping cart is empty! Add items before running a transaction.");
+        return;
+    }
+
+    const submitBtn = document.getElementById('submit-payment');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Processing Secured Payment...";
+
+    const billingDetails = {
+        name: `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`,
+        email: document.getElementById('email').value,
+        address: {
+            line1: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            postal_code: document.getElementById('zipcode').value
+        }
+    };
+
+    // Card details are processed through secure iframe token conversion directly inside Stripe servers
+    const { token, error } = await stripe.createToken(cardElement, billingDetails);
+
+    if (error) {
+        const errorElement = document.getElementById('card-errors');
+        errorElement.textContent = error.message;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Pay Securely Now";
+    } else {
+        // Safe payment token successfully generated! Sensitive data bypassed your servers completely
+        alert(`Success! Payment authorized securely.\nToken generated: ${token.id}\nNo raw card information touched your server repository layout.`);
+        
+        // Clear layout details back out to clean empty checkout state
+        cartItemsCount = 0;
+        cartSubtotal = 0;
+        cartCountElement.textContent = "0";
+        orderForm.reset();
+        cardElement.clear();
+        updateSummaryDisplay();
+        
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Pay Securely Now";
+    }
+});

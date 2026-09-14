@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trend & Thread | Premium Sustainable Fashion</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Trend & Thread</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#checkout">Checkout</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-btn">🌙</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Premium Sustainable Fashion</h1>
+      <p>Discover timeless clothing made with care for people and the planet.</p>
+      <a href="#products" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Products Catalog -->
+  <section id="products" class="products">
+    <h2>Our Collection</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-image">🧥</div>
+        <h3>Classic Hoodie</h3>
+        <p class="price">$49.00</p>
+        <button class="add-to-cart" data-name="Classic Hoodie" data-price="49">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">👕</div>
+        <h3>Organic T-Shirt</h3>
+        <p class="price">$29.00</p>
+        <button class="add-to-cart" data-name="Organic T-Shirt" data-price="29">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">👖</div>
+        <h3>Relaxed Jeans</h3>
+        <p class="price">$69.00</p>
+        <button class="add-to-cart" data-name="Relaxed Jeans" data-price="69">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">🧥</div>
+        <h3>Linen Shirt</h3>
+        <p class="price">$55.00</p>
+        <button class="add-to-cart" data-name="Linen Shirt" data-price="55">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Checkout Section -->
+  <section id="checkout" class="checkout">
+    <h2>Checkout</h2>
+    <div class="checkout-container">
+
+      <!-- Cart Summary -->
+      <div class="cart-summary">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <hr>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping:</span>
+          <span id="shipping">$5.00</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total:</span>
+          <span id="total">$5.00</span>
+        </div>
+      </div>
+
+      <!-- Shipping + Payment Form -->
+      <div class="checkout-form">
+        <h3>Shipping & Payment</h3>
+        <form id="order-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="text" placeholder="Address" required>
+          <input type="text" placeholder="City" required>
+          <input type="text" placeholder="Postal Code" required>
+
+          <div id="card-element"><!-- Stripe Card Element --></div>
+          <div id="card-errors" role="alert"></div>
+
+          <button type="submit" class="btn pay-btn">Pay Now</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Trend & Thread. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
